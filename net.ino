@@ -9,5 +9,5 @@ void init_network() {
   ether.printIp("IP:  ", ether.myip);
   ether.printIp("GW:  ", ether.gwip);  
   ether.printIp("DNS: ", ether.dnsip); 
-
+  Serial.println();
 }

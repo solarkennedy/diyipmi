@@ -2,6 +2,7 @@
 #include <IPAddress.h>
 #include <EtherCard.h>
 #include <avr/wdt.h>
+#include "libipmi.h"
 
 #define CS_PIN 10
 
@@ -12,7 +13,7 @@ byte mymac[] = {
 void setup () {
 
   init_network();
-  ether.udpServerListenOnPort(&udpSerialPrint, 623);
+  ether.udpServerListenOnPort(&IPMIServer, 623);
 }
 
 

@@ -1,32 +1,38 @@
-void udpSerialPrint(word port, byte ip[4], const char *data, word len) {
-  IPAddress src(ip[0], ip[1], ip[2], ip[3]);
+void IPMIServer(word port, byte *ip, word srcPort, const char *data, word len) {
+ // IPAddress src(ip[0], ip[1], ip[2], ip[3]);
   Serial.print("Source: ");
-  Serial.print(src);
+  //Serial.print(src);
   Serial.print(":");
   Serial.println(port);
+  printIPMIPacket(data, len);
+  decodeAndReply(data, len);
+}
 
-  Serial.print("RCMP HEADER: ");
-  for (int i = 0; i <= 3;i++) {
-    p("0x%02x ",data[i]);
+
+void decodeAndReply(const char *data, word len){
+
+  if (data[RMCP_HEADER_OFFSET_VERSION] == RMCP_HEADER_VERSION) {
+    if (data[RMCP_HEADER_OFFSET_RESERVED] == RMCP_HEADER_RESERVED)  {
+
+      respondToASF(data, len);
+    }      
+
+
+    else {
+      Serial.println("here3");
+    }
   }
-  Serial.println();
-
-  Serial.print("IPMI SESSION: ");
-  for (int i = 4; i <= 13;i++) {
-    p("0x%02x ",data[i]);
+  else {
+    Serial.println("here4");
   }
-  Serial.println();
-
-  Serial.print("IPMI CMD: ");
-  for (int i = 14; i <= len;i++) {
-    p("0x%02x ",data[i]);
-  }
-  Serial.println();
 
 
-  Serial.print("Length: ");
-  Serial.println(len);
-  Serial.println();
+}
+
+
+void respondToASF(const char *data, word len) {
+  Serial.println("Got an ASF packet");
+  //ether.sendUdp("textToSend", sizeof("textToSend"), RMCP_UDP_PORT, ether.hisip, dstPort ); 
 }
 
 
