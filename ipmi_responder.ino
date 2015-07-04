@@ -38,7 +38,7 @@ void respondToIPMI(const char *data, word len, byte *srcip, word port) {
             return ipmi_cmd_get_device_id(srcip, port);
           }
         default: {
-            Serial.println("Unknown command");
+            return ipmi_cmd_uknown(srcip, port);
           }
       }
       return;
