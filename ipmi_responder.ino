@@ -37,6 +37,9 @@ void respondToIPMI(const char *data, word len, byte *srcip, word port) {
         case IPMI_CMD_GET_DEVICE_ID: {
             return ipmi_cmd_get_device_id(srcip, port);
           }
+        case IPMI_CMD_CLOSE_SESSION: {
+            return ipmi_cmd_close_session(srcip, port);
+          }
         default: {
             return ipmi_cmd_uknown(srcip, port);
           }
