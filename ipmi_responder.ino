@@ -13,6 +13,9 @@ void respondToIPMI(const char *data, word len, byte *srcip, word port) {
         case IPMI_CMD_GET_CHAN_AUTH_CAPA: {
             return ipmi_app_auth_capa(srcip, port);
           }
+        case IPMI_CMD_GET_SESS_CHALLENGE: {
+            return ipmi_app_get_sess_challenge(srcip, port);
+          }
         default: {
             Serial.println("Unknown command");
           }

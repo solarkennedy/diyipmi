@@ -11,14 +11,12 @@ byte mymac[] = {
   0x74,0x69,0x69,0x2D,0x30,0x31 };
 
 void setup () {
-
   init_network();
   ether.udpServerListenOnPort(&IPMIServer, 623);
 }
 
 
 void loop () {
-  //this must be called for ethercard functions to work.
   ether.packetLoop(ether.packetReceive());
 }
 
