@@ -31,6 +31,12 @@ void respondToIPMI(const char *data, word len, byte *srcip, word port) {
         case IPMI_CMD_ACTIVE_SESS: {
             return ipmi_app_active_sess(srcip, port);
           }
+        case IPMI_CMD_SET_SES_PRIV_LEVEL: {
+            return ipmi_cmd_set_ses_priv_level(srcip, port);
+          }
+        case IPMI_CMD_GET_DEVICE_ID: {
+            return ipmi_cmd_get_device_id(srcip, port);
+          }
         default: {
             Serial.println("Unknown command");
           }

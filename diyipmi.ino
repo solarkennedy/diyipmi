@@ -6,7 +6,7 @@
 
 #define CS_PIN 10
 
-byte Ethernet::buffer[700];
+byte Ethernet::buffer[500];
 byte mymac[] = { 
   0x74,0x69,0x69,0x2D,0x30,0x31 };
 
