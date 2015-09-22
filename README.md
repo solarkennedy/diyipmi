@@ -9,18 +9,18 @@ A DIY IPMI Interface for your things.
 
 ## Progress
 
-[x] ASF ping/pong
-[x] Get auth capabilities
-[x] Session + Activaction
-[x] Priv levels (admin only)
-[ ] Device capabiltiies
-[ ] sdr info / sensor list
-[ ] sel log
-[ ] bmc info / reset
-[ ] chassis power on/off/reset
-[ ] BMC lan configuration?
-[ ] SOL activate?
-[ ] Packet checksumming...
+[x] ASF ping/pong  
+[x] Get auth capabilities  
+[x] Session + Activaction  
+[x] Priv levels (admin only)  
+[ ] Device capabiltiies  
+[ ] sdr info / sensor list  
+[ ] sel log  
+[ ] bmc info / reset 
+[ ] chassis power on/off/reset  
+[ ] BMC lan configuration?  
+[ ] SOL activate?  
+[ ] Packet checksumming...  
 
 ## References
 
